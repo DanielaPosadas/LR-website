@@ -1,0 +1,81 @@
+{
+    "terminal.integrated.env.windows": {},
+    "window.zoomLevel": 0,
+    "workbench.sideBar.location": "right",
+    "workbench.productIconTheme": "fluent-icons",
+    "symbols.hidesExplorerArrows": false,
+    "editor.minimap.enabled": true,
+    "editor.scrollbar.vertical": "auto",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.guides.indentation": false,
+    "editor.wordWrap": "on",
+    "indenticator.width": 0.5,
+    "indenticator.color.dark": "rgba(255,255,255,0.1)",
+    "editor.glyphMargin": false,
+    "workbench.statusBar.visible": true,
+    "editor.fontSize": 20,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": false,
+      "markdown": false,
+      "scminput": false,
+      "typescript": true
+    },
+    "editor.cursorBlinking": "expand",
+    "eslint.format.enable": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "security.workspace.trust.untrustedFiles": "open",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "git.confirmSync": false,
+  
+    // Prettier
+    "files.eol": "\n",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.embeddedLanguageFormatting": "auto",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "always"
+    },
+  
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "prettier.requireConfig": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.integrated.env.osx": {},
+    "explorer.confirmDragAndDrop": false,
+    "editor.accessibilitySupport": "off",
+  
+    // Emmet
+    "files.associations": {
+      "*.ejs": "javascriptreact"
+    },
+    "emmet.includeLanguages": {
+      "javascriptreact": "html",
+      "javascript": "html",
+      "typescript": "html",
+      "typescriptreact": "html"
+    },
+    "emmet.syntaxProfiles": {
+      "html": {
+        "self_closing_tag": "never"
+      }
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+  
+    // folding
+    "editor.folding": true,
+    "editor.foldingStrategy": "auto",
+    "[javascript]": {
+      "editor.foldingStrategy": "indentation"
+    },
+    "workbench.iconTheme": "symbols",
+    "yaml.schemas": {
+      "file:///Users/osx/.windsurf/extensions/atlassian.atlascode-3.8.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+  }
+  
