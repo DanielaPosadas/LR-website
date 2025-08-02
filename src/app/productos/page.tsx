@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Carousel from '@/components/carousel/carousel';
 import Button from '@/components/motionButton/button';
+import { useState } from 'react';
 
 const images = ['/hero/hero-4.jpg', '/hero/hero-4.jpg', '/hero/hero-4.jpg'];
 
@@ -27,6 +28,9 @@ const breakpoints = {
 };
 
 export default function Page() {
+  const [changeLogo, setChangeLogo] = useState<string | null>(null);
+  const logos = ['Metrel', 'Meatrol', 'Elmeasure'];
+
   return (
     <section className="w-full h-max min-h-screen mt-8 md:my-16">
       <article className="w-full min-h-[400px] flex bg-primary flex-col  items-center">
@@ -45,15 +49,21 @@ export default function Page() {
       </article>
       <article>
         <div className="md:max-w-6xl w-full md:mx-auto h-auto flex flex-wrap md:justify-around mt-16 items-center gap-10 justify-center">
-          <div className="w-5/12 flex justify-center md:w-3/12">
-            <Image src="/favicon.ico" width={100} height={100} alt="LR Logo" />
-          </div>
-          <div className="w-5/12 flex justify-center md:w-3/12">
-            <Image src="/favicon.ico" width={100} height={100} alt="LR Logo" />
-          </div>
-          <div className="w-5/12 flex justify-center md:w-3/12">
-            <Image src="/favicon.ico" width={100} height={100} alt="LR Logo" />
-          </div>
+          {logos.map((logo, index) => (
+            <div
+              key={index}
+              className={`${changeLogo === logo ? 'bg-primary' : ''} w-5/12 flex justify-center md:w-3/12 cursor-pointer min-h-[120px]`}
+              onClick={() => setChangeLogo(logo)}
+            >
+              <Image
+                src={`${changeLogo === logo ? '/favicon.ico' : '/next.svg'}`}
+                width={100}
+                height={100}
+                alt="LR Logo"
+                className="object-contain"
+              />
+            </div>
+          ))}
         </div>
       </article>
       <article className="w-full h-auto flex justify-around mt-16 items-center gap-10 ">
