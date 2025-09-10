@@ -15,7 +15,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Nosotros', href: '/nosotros' },
     { name: 'LR Cloud', href: '/lr-cloud' },
-    { name: 'Contacto', href: '/contacto' },
+    { name: 'Productos', href: '/productos' },
   ];
   return (
     <nav className="flex justify-center bg-primary h-16 fixed top-0 z-50 w-screen">
@@ -52,7 +52,7 @@ export default function Navbar() {
           return (
             <div key={link.name} className="relative px-2 py-2">
               <Link href={link.href}>
-                <span className={isActive ? 'text-secondary' : ''}>
+                <span className={isActive ? 'text-white' : ''}>
                   {link.name}
                 </span>
               </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
                   exit={{ width: 0 }}
-                  className="absolute left-0 right-0 h-[2px] bg-blue-600"
+                  className="absolute left-0 right-0 h-[2px] bg-secondary"
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}

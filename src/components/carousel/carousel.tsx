@@ -7,18 +7,14 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
+import { ImagesProps } from '@/interfaces/interfaces';
 
-interface ImagesProps {
-  images: string[];
-  slides: number;
-  breakpoints?: {
-    [key: number]: {
-      slidesPerView: number;
-    };
-  };
-}
-
-export default function Carousel({ images, slides, breakpoints }: ImagesProps) {
+export default function Carousel({
+  images,
+  slides,
+  breakpoints,
+  alt,
+}: ImagesProps) {
   return (
     <Swiper
       modules={[Pagination, Navigation]}
@@ -27,11 +23,17 @@ export default function Carousel({ images, slides, breakpoints }: ImagesProps) {
       pagination={{ clickable: true }}
       navigation={true}
       breakpoints={breakpoints}
-      className="w-10/12 max-h-[400px]"
+      className="w-full"
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
-          <Image src={image} alt="LR Logo" width={1920} height={400} />
+          <Image
+            src={image}
+            alt={alt[index]}
+            width={1920}
+            height={400}
+            className="rounded-2xl object-cover"
+          />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -17,7 +17,7 @@ export default function Button({ text, href }: ButtonProps) {
     >
       <Link
         href={href}
-        className="inline-block hover:bg-secondary bg-primary  text-white px-6 py-2 rounded-full border border-white mt-8"
+        className="inline-block hover:bg-secondary bg-gray-400 text-white px-6 py-2 rounded-full border border-white mt-8 min-w-[200px] text-center cursor-pointer"
       >
         {text}
       </Link>

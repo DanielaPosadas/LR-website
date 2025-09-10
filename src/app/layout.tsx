@@ -3,6 +3,7 @@ import 'next/font/google';
 import { Outfit } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import WhatsButton from '@/components/whatsButton/whatsButton';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.className} min-h-screen`}>
+        <WhatsButton />
         <Navbar />
         {children}
         <Footer />

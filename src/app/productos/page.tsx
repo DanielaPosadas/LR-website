@@ -3,16 +3,45 @@
 import Image from 'next/image';
 import Carousel from '@/components/carousel/carousel';
 import Button from '@/components/motionButton/button';
+import Sections from '@/components/productSections/pagina';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const images = ['/hero/hero-4.jpg', '/hero/hero-4.jpg', '/hero/hero-4.jpg'];
+const logoBrands = {
+  blanco: [
+    '/brands/metrel.png',
+    '/brands/meatrol.png',
+    '/brands/elmeasure.png',
+  ],
+  color: [
+    '/brands/metrel-color.png',
+    '/brands/meatrol-color.png',
+    '/brands/elmeasure-color.png',
+  ],
+};
 
 const products = [
-  '/hero/hero-4.jpg',
-  '/hero/hero-4.jpg',
-  '/hero/hero-4.jpg',
-  '/hero/hero-4.jpg',
-  '/hero/hero-4.jpg',
+  {
+    image: '/hero/hero-4.jpg',
+    alt: 'Product 1',
+  },
+  {
+    image: '/hero/hero-4.jpg',
+    alt: 'Product 2',
+  },
+  {
+    image: '/hero/hero-4.jpg',
+    alt: 'Product 3',
+  },
+  {
+    image: '/hero/hero-4.jpg',
+    alt: 'Product 4',
+  },
+  {
+    image: '/hero/hero-4.jpg',
+    alt: 'Product 5',
+  },
 ];
 
 const breakpoints = {
@@ -28,8 +57,16 @@ const breakpoints = {
 };
 
 export default function Page() {
-  const [changeLogo, setChangeLogo] = useState<string | null>(null);
+  const [changeLogo, setChangeLogo] = useState<string | null>('Metrel');
   const logos = ['Metrel', 'Meatrol', 'Elmeasure'];
+  const sections = [
+    'Todos',
+    'Calidad de Energía',
+    'Probadores de Continuidad',
+    'Probador de Relación de Transformador',
+    'Resistencia de Aislamiento',
+    'Resistencia de Tierras',
+  ];
 
   return (
     <section className="w-full h-max min-h-screen mt-8 md:my-16">
@@ -48,32 +85,46 @@ export default function Page() {
         </div>
       </article>
       <article>
-        <div className="md:max-w-6xl w-full md:mx-auto h-auto flex flex-wrap md:justify-around mt-16 items-center gap-10 justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="md:max-w-7xl w-full md:mx-auto h-auto flex flex-wrap md:justify-around mt-16 items-center gap-10 justify-center"
+        >
           {logos.map((logo, index) => (
             <div
               key={index}
-              className={`${changeLogo === logo ? 'bg-primary' : ''} w-5/12 flex justify-center md:w-3/12 cursor-pointer min-h-[120px]`}
+              className={`${changeLogo === logo ? 'bg-primary' : ''} w-5/12 flex justify-center md:w-3/12 cursor-pointer min-h-[120px] rounded-2xl`}
               onClick={() => setChangeLogo(logo)}
             >
               <Image
-                src={`${changeLogo === logo ? '/favicon.ico' : '/next.svg'}`}
-                width={100}
-                height={100}
-                alt="LR Logo"
-                className="object-contain"
+                src={`${changeLogo === logo ? logoBrands.blanco[index] : logoBrands.color[index]}`}
+                width={200}
+                height={200}
+                alt={`${logo} Logo`}
+                className="object-contain w-28 md:w-36 lg:w-52 xl:w-64"
               />
             </div>
           ))}
-        </div>
+        </motion.div>
+        <article className="mt-16 lg:min-h-[500px] min-h-[700px]">
+          <Sections sections={sections} marca={changeLogo} />
+        </article>
       </article>
       <article className="w-full h-auto flex justify-around mt-16 items-center gap-10 ">
-        <Carousel images={images} slides={1} />
+        <Carousel images={images} slides={1} alt="LR Logo" />
       </article>
       <article className="w-full h-auto flex justify-around mt-16 items-center gap-10 flex-col">
         <h2 className="text-2xl md:text-4xl font-medium text-title text-center">
-          PRODUCTOS MÁS VENDIDOS
+          PRODUCTOS RELACIONADOS
         </h2>
-        <Carousel images={products} slides={3} breakpoints={breakpoints} />
+        <Carousel
+          images={products.map(product => product.image)}
+          slides={3}
+          breakpoints={breakpoints}
+          alt={products.map(product => product.alt)}
+        />
         <Button text="CONTACTA A UN ASESOR" href="/contacto" />
       </article>
     </section>

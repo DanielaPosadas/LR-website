@@ -6,11 +6,12 @@ import Button from '@/components/motionButton/button';
 
 export default function Page() {
   const sections = [
-    { image: '/hero/hero-4.jpg', title: 'Intrumentos de Medición' },
-    { image: '/hero/hero-4.jpg', title: 'Plataformas de Gestión' },
+    { image: '/hero/hero-4.jpg', title: 'Instrumentos de Medición' },
+    { image: '/hero/hero-4.jpg', title: 'Plataformas de Gestión Eléctrica' },
     { image: '/hero/hero-4.jpg', title: 'Capacitación' },
     { image: '/hero/hero-4.jpg', title: 'Servicio al Cliente' },
   ];
+
   return (
     <section className="flex min-h-screen h-max flex-col">
       <section className="w-full h-full flex relative flex-col md:flex-row">
@@ -18,7 +19,7 @@ export default function Page() {
           src="/hero/hero-4.jpg"
           width={1440}
           height={820}
-          alt="LR Logo"
+          alt="LR Smart Solutions"
           className="object-cover w-screen h-screen absolute top-0 left-0 z-0"
         />
         <div className="z-10 justify-center items-center md:items-start flex flex-col h-screen w-full md:w-fit xl:mx-64 lg:mx-44 md:mx-28 pt-16">
@@ -64,7 +65,9 @@ export default function Page() {
                       alt="LR Logo"
                       className="w-20 h-20 rounded-2xl object-cover"
                     />
-                    <p className="text-white">{section.title}</p>
+                    <p className="text-white max-w-[200px] text-center">
+                      {section.title}
+                    </p>
                   </li>
                 );
               })}
